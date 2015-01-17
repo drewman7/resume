@@ -387,6 +387,7 @@ $("#mapDiv").addClass("gray");
 $("#mapDiv").append(googleMap);
 
 //add contact information to the footer section
+$(".orange").css("background-color", "#293446");
 var formattedContacts = HTMLskills.replace("%data%","Mobile: " + bio.contacts.mobile);
 $("#footerContacts").append(formattedContacts);
 var formattedContacts = HTMLskills.replace("%data%","Email: " + bio.contacts.email);
