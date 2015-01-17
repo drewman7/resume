@@ -236,18 +236,17 @@ if (bio.character.length !== 0) {  //if the character object does not have a len
 	formattedCharacter = formattedCharacter.replace("id=\"skills", "id=\"traits");  //change the skills id to the traits id for this new element
 	$("#header").append(formattedCharacter);  //add this new element to the header id
 	$("#traitsH3").css("color", "#FFFFFF");  //set the color of the element traitsH3
-	$("#skillsH3").css("color", "#FFFFFF");  //set the color of the element skillsH3
+	$("#skillsH3").css("color", "#FFFFFF");
 
 	for (i in bio.character) {  //step through the character list formatting it using the helper.js template an appending it to the traits id element
 		var formattedTraits = HTMLskills.replace("%data%",bio.character[i]);
 		$("#traits").append(formattedTraits);
 	};
 };
-$("#header").css("background-color", "#293446");  //change the background color of the header section
-$("h1").css("color", "#FFFFFF");  //change the header text color
-$("#footerContacts").css("background-color", "#293446");  //change the background color of the footer section
-$(".white-text").css("color", "#C0C0C0");  //change the color of the white-text class to a slight gray (ironic)
-$(".welcome-message").css("color", "#C0C0C0");  //change the color of the welcome-message class to slight gray
+$("#header").css("background-color", "#293446");  //change the background color of the header section to saddlebrown
+$("h1").css("color", "#FFFFFF");
+$("#footerContacts").css("background-color", "#293446");  //change the background color of the footer section to saddlebrown
+$(".white-text").css("color", "#C0C0C0");
 
 //WORK EXPERIENCE SECTION//
 //Code formats the work experience section
@@ -276,7 +275,7 @@ function displayWork(){  //function walks through the work.jobs object to create
 			$("li").css("margin-left", 15); //ensure indentation
 			for (m in work.jobs[j].experience) {
 				$(".work-entry:last").append("<ul>");
-				$(".work-entry:last").append("<li style=\"margin-left: 15px;\">" +  "<p>"+ work.jobs[j].experience[m] + "</p>" + "</li>");
+				$(".work-entry:last").append("<li>" +  "<p>"+ work.jobs[j].experience[m] + "</p>" + "</li>");
 				$(".work-entry:last").append("</ul>");
 			};
 		};
