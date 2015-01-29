@@ -8,7 +8,7 @@ var bio = {
 		"location":"Birch Run, MI",
 		"twitter": "@drewtott"
 	},
-	"welcomemsg":"My desire is to solve business and technical problems by developing user friendly applications and solutions.",
+	"welcomemsg":"My passion is to enable people to become who they were created to be.  Specific to the work environment, my desire is to solve business and technical problems while enabling users to reach higher goals through the development of applications and solutions.",
 	"skills": ["Analytical", "Intuitive", "Resourceful", "Adaptable", "Inovative","Quick Learner"],
 	"character": ["Integrity", "Respectful", "Patient", "Self-motivated"],
 	"bioPic": "images/drew.jpg"
