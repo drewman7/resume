@@ -22,15 +22,16 @@ var work = {
 			"title": "Sr. Solutions Architect",
 			"location": "Saginaw, MI",
 			"dates": "March 1996 to Present",
-			"description": "Designed and solutioned voice transformation solutions for customers",
+			"description": "Researched, designed and presented voice transformation solutions for customers",
 			"experience": [
-				"Consulted customers and designed solutions to meet their business and technology needs and desires using Avaya and Cisco solutions",
-				"Assisted in AT&T process development for Avaya solutions",
+				"Provided customers consultation on solutions to meet their business and technology needs using Avaya and Cisco solutions",
+				"Researched various technologies including cloud, hosted, on-premise, and managed to address customer identified requirements",
+				"Lead and participated AT&T process development for Avaya solutions",
 				"Managed engineering sub teams to develop large and complex solutions for customers",
 				"Assisted peers with complex designs and solutions",
 				"Provided training to engieners and sales teams on Avaya products and solutions",
-				"Studied Value Based Selling and the Science of Consultative Selling",
-				"Trained on various products including Avaya, Cisco, Juniper Networks, Adtran, and Shortel"
+				"Studied Value Based Selling, Science of Consultative Selling, and AT&T Voice Transformation",
+				"Trained on various products and technologies including Avaya, Cisco, Lync, Juniper Networks, Adtran, and Shortel"
 			]
 		},
 		{
@@ -40,7 +41,7 @@ var work = {
 			"dates": "January 1997 to November 2001; August 2006 to Present",
 			"description": "Designed, developed, and supported an Excel based customer quote and implementation pricing tool",
 			"experience": [
-				"Evolved a basic Excel based tool into a complex cusotmer quoting application",
+				"Evolved a basic Excel quote tool into a complex customer quoting application",
 				"Developed user friendly processes and inputs to address end user business needs",
 				"Created Excel visual basic macros and spreadsheets",
 				"Engaged product management to introduce new products into the tool",
@@ -51,18 +52,19 @@ var work = {
 		},
 		{
 			"employer": "Partner Community Council (PCC)",
-			"title": "Configuration Tools Task Force chair",
+			"title": "Configuration Tools Task Force Chair",
 			"location": "Saginaw, MI",
-			"dates": "September 2000 to December 2008; January 2010 to Present",
-			"description": "Lead, guided, and coordinated discussion and issue resolution between Nortel and Avaya partners and Avaya",
+			"dates": "September 2000 to December 2007; June 2011 to Present",
+			"description": "Lead, guided, and coordinated discussion and issue resolution between Avaya partners and Avaya",
 			"experience": [
-				"Lead the direction and focus of the task force",
-				"Coordinated and lead the monthly conference calls as well as the conference breakout sessions",
 				"Analyized and evaluated Avaya tools and processes for designing and solutioning Avaya products and services",
+				"Chaired, guided, directed, and participated in the Configuration Tools Task Force",
+				"Coordinated and lead the monthly conference calls as well as the conference breakout sessions",
 				"Acted as a liason between AT&T and the PCC to address concerns and issues",
 				"Participated in the Engineering, IP Convergence, Training, and Product Management Task Forces",
 				"Escalate and discussed critical issues with the PCC Board of Directors and Avaya Executives",
-				"Assisted Global Knowledge with the design of a Sales Engineering class"
+				"Assisted Global Knowledge with the design of a Sales Engineering class",
+				"Maintained membership in the PCC from March 1997 to present except from January 2009 to October 2010"
 			]
 		},
 		{
@@ -73,8 +75,8 @@ var work = {
 			"description": "Testing and evaluating Nortel products and solutions.",
 			"experience": [
 				"Configured and tested hardware and software features on Nortel Meridian 1 PBX systems",
-				"Assisted Nortel ETAS (*Emergency Technical Assistance Support) with the testing of issues",
-				"Assisted new product introduction engineers withe testing and standardization of Nortel products",
+				"Assisted Nortel ETAS (Emergency Technical Assistance Support) with the testing of issues",
+				"Assisted new product introduction engineers with testing and standardization of Nortel products",
 				"Installed Macintosh and PC based computers for the lab and new product introduction engineers",
 				"Designed and implemented an inventory system for the CAST Lab"
 			]
@@ -88,7 +90,7 @@ var work = {
 			"experience": [
 				"Installed and maintenance the Computer Operated Data Entry System (CODES) software",
 				"Supported the SCO Unix mainframed used for the CODES software",
-				"Installed, configured and maintaine a sucre multi-modem bank and digiboard system"
+				"Installed, configured and maintained a sucre multi-modem bank and digiboard system"
 			]
 		}
 	]
@@ -106,12 +108,12 @@ var projects = {
 		{
 			"title": "Front-End Web Design Nanodegree Project 2 - JavaScript Design",
 			"dates": "January 2015",
-			"description": "This interactive resume is the result of project 2.",
+			"description": "Building of an online, interactive resume (which is what you are viewing now).",
 			"images": ""
 		},
 		{	"title": "Proposal Management and Implementation Tool",
 			"dates": "January 2015",
-			"description": "Excel based, visual basic driven sales quote tool and implementation pricing design tool:",
+			"description": "Excel based visual basic sales quote tool and implementation pricing design tool:",
 			"images": "images/pmi-600.png"
 		}
 	]
@@ -124,7 +126,7 @@ var education = {
 			"name": "Udacity",
 			"degree": "Nanodegree",
 			"majors": "Front End Web Design",			
-			"dates": "May 2015",
+			"dates": "Intended completion May 2015",
 			"location": "Online",
 			"url": "http://udacity.com"
 		},
@@ -303,9 +305,13 @@ projects.display = function() {  //function walks through the projects.projects 
 		var formattedProjectDescription = HTMLprojectDescription.replace("%data%",projects.projects[k].description);
 		$(".project-entry:last").append(formattedProjectDescription);
 
-		//formats the impage and appends to project-entry class
-		var formattedProjectImage = HTMLprojectImage.replace("%data%",projects.projects[k].images);
-		$(".project-entry:last").append(formattedProjectImage);
+		if (projects.projects[k].images === "") {
+			$(".project-entry:last").append("<br>");  //line feed
+		} else {
+			//formats the impage and appends to project-entry class
+			var formattedProjectImage = HTMLprojectImage.replace("%data%",projects.projects[k].images);
+			$(".project-entry:last").append(formattedProjectImage);
+		};
 	};
 };
 //calls the projects function above
