@@ -213,47 +213,50 @@ var certifications = {
 };
 
 //HEADER SECTION//
-// code formats the header section; uses helper.js
-var formattedName = HTMLheaderName.replace("%data%",bio.name);  //format the name from helper.js
-var formattedRole = HTMLheaderRole.replace("%data%",bio.role);  //format the role from helper.js
-var formattedPic = HTMLbioPic.replace("%data%",bio.bioPic);  //insert the picture location into helper.js
-var formattedWelcome = HTMLWelcomeMsg.replace("%data%",bio.welcomemsg);  //format the welcome message from helper.js
-formattedRole = formattedRole.replace("<span>", "<span class=\"white-text\">");  //change class on formatted role
-$("#header").prepend(formattedName,formattedRole);  //prepend the name and role to the header id element
-$("#header").append(formattedPic);  //append the picture to the header id element
-$("#header").append(formattedWelcome);  //append the welcome message to the hdaer id element
-// format and appen the skills to the hedaer id element
-if (bio.skills.length !== 0) { //if the skills object does not have a length of zero, do the following
-	$("#header").append(HTMLskillsStart);  //append the header id element with the skill start format from helper.js
-	
-	for (i in bio.skills) {  //step through the skills list formatting it using the helper.js template and appending it to the skills id element
-		var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
-		$("#skills").append(formattedSkills);
+bio.display = function() {
+	// code formats the header section; uses helper.js
+	var formattedName = HTMLheaderName.replace("%data%",bio.name);  //format the name from helper.js
+	var formattedRole = HTMLheaderRole.replace("%data%",bio.role);  //format the role from helper.js
+	var formattedPic = HTMLbioPic.replace("%data%",bio.bioPic);  //insert the picture location into helper.js
+	var formattedWelcome = HTMLWelcomeMsg.replace("%data%",bio.welcomemsg);  //format the welcome message from helper.js
+	formattedRole = formattedRole.replace("<span>", "<span class=\"white-text\">");  //change class on formatted role
+	$("#header").prepend(formattedName,formattedRole);  //prepend the name and role to the header id element
+	$("#header").append(formattedPic);  //append the picture to the header id element
+	$("#header").append(formattedWelcome);  //append the welcome message to the hdaer id element
+	// format and appen the skills to the hedaer id element
+	if (bio.skills.length !== 0) { //if the skills object does not have a length of zero, do the following
+		$("#header").append(HTMLskillsStart);  //append the header id element with the skill start format from helper.js
+		
+		for (i in bio.skills) {  //step through the skills list formatting it using the helper.js template and appending it to the skills id element
+			var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
+			$("#skills").append(formattedSkills);
+		};
 	};
-};
-// add a character section along with character attributes
-if (bio.character.length !== 0) {  //if the character object does not have a length of zero, do the following
-	var formattedCharacter = HTMLskillsStart.replace("Skills at a Glance", "Character Traits");  //format the character title from the skills start helper.js template
-	formattedCharacter = formattedCharacter.replace("id=\"skillsH3", "id=\"traitsH3");  //change the skillsH3 id to traitsH3 for this new element
-	formattedCharacter = formattedCharacter.replace("id=\"skills", "id=\"traits");  //change the skills id to the traits id for this new element
-	$("#header").append(formattedCharacter);  //add this new element to the header id
-	$("#traitsH3").css("color", "#FFFFFF");  //set the color of the element traitsH3
-	$("#skillsH3").css("color", "#FFFFFF");  //set the color of the element skillsH3
+	// add a character section along with character attributes
+	if (bio.character.length !== 0) {  //if the character object does not have a length of zero, do the following
+		var formattedCharacter = HTMLskillsStart.replace("Skills at a Glance", "Character Traits");  //format the character title from the skills start helper.js template
+		formattedCharacter = formattedCharacter.replace("id=\"skillsH3", "id=\"traitsH3");  //change the skillsH3 id to traitsH3 for this new element
+		formattedCharacter = formattedCharacter.replace("id=\"skills", "id=\"traits");  //change the skills id to the traits id for this new element
+		$("#header").append(formattedCharacter);  //add this new element to the header id
+		$("#traitsH3").css("color", "#FFFFFF");  //set the color of the element traitsH3
+		$("#skillsH3").css("color", "#FFFFFF");  //set the color of the element skillsH3
 
-	for (i in bio.character) {  //step through the character list formatting it using the helper.js template an appending it to the traits id element
-		var formattedTraits = HTMLskills.replace("%data%",bio.character[i]);
-		$("#traits").append(formattedTraits);
+		for (i in bio.character) {  //step through the character list formatting it using the helper.js template an appending it to the traits id element
+			var formattedTraits = HTMLskills.replace("%data%",bio.character[i]);
+			$("#traits").append(formattedTraits);
+		};
 	};
+	$("#header").css("background-color", "#293446");  //change the background color of the header section
+	$("h1").css("color", "#FFFFFF");  //change the header text color
+	$("#footerContacts").css("background-color", "#293446");  //change the background color of the footer section
+	$(".white-text").css("color", "#C0C0C0");  //change the color of the white-text class to a slight gray (ironic)
+	$(".welcome-message").css("color", "#C0C0C0");  //change the color of the welcome-message class to slight gray
 };
-$("#header").css("background-color", "#293446");  //change the background color of the header section
-$("h1").css("color", "#FFFFFF");  //change the header text color
-$("#footerContacts").css("background-color", "#293446");  //change the background color of the footer section
-$(".white-text").css("color", "#C0C0C0");  //change the color of the white-text class to a slight gray (ironic)
-$(".welcome-message").css("color", "#C0C0C0");  //change the color of the welcome-message class to slight gray
+bio.display();
 
 //WORK EXPERIENCE SECTION//
 //Code formats the work experience section
-function displayWork(){  //function walks through the work.jobs object to create the work experience section
+work.display = function () {  //function walks through the work.jobs object to create the work experience section
 	for (j in work.jobs) {  //loops through work.jobs to place the information in the work experience section
 		//sets up the header for the job, formats the employer and title, and appends it to the work-entry class
 		$("#workExperience").append(HTMLworkStart);
@@ -286,7 +289,7 @@ function displayWork(){  //function walks through the work.jobs object to create
 	};
 };
 //calls the work experience function above
-displayWork();
+work.display();
 
 //PROJECTS SECTION//
 //Code formats the projects section
@@ -353,10 +356,10 @@ education.display = function() {   //function walks through the education.school
 education.display();
 
 //CERTIFICATIONS SECTION//
+certifications.display = function() {  //function walks through the certifications.certs object to create the certifications section
 //Code formats the certification section
-$("<div id='certs'></div>").insertAfter("#education");  //inserts a certs element
-$("#certs").append("<h2>Certifications</h2>");  //inserts a Certifications header
-function displayCerts(){  //function walks through the certifications.certs object to create the certifications section
+	$("<div id='certs'></div>").insertAfter("#education");  //inserts a certs element
+	$("#certs").append("<h2>Certifications</h2>");  //inserts a Certifications header
 	for (n in certifications.certs) {  //loops through certifications.certs to place the information in the certifications section
 		//sets up the header for the cert, formats the company, and appends it to the work-entry class
 		$("#certs").append(HTMLworkStart);
@@ -373,30 +376,34 @@ function displayCerts(){  //function walks through the certifications.certs obje
 		$(".work-entry:last").append("<br>");  //line feed
 	};
 };
-//calls the certification function ablove
-displayCerts();
-
+//calls the certification.display function above
+certifications.display();
 
 //following small section of code used in Javascript class; not used for the resume
-function inName(name){
-	name = name.trim().split(" ");
-	console.log(name);
-	name[1] = name[1].toUpperCase();
-	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-	return name[0] +" "+name[1];
-};
+//function inName(name){
+//	name = name.trim().split(" ");
+//	console.log(name);
+//	name[1] = name[1].toUpperCase();
+//	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+//	return name[0] +" "+name[1];
+//};
 
 //$("#main").append(internationalizeButton);
 
-//enables the googlemap and sets the background color to gray since an additional section was added above it
-$("#mapDiv").addClass("gray");
-$("#mapDiv").append(googleMap);
+//MAP AND FOOTER SECTIONS//
+bio.display2 = function() {
+	//enables the googlemap and sets the background color to gray since an additional section was added above it
+	$("#mapDiv").addClass("gray");
+	$("#mapDiv").append(googleMap);
 
-//add contact information to the footer section
-$(".orange").css("background-color", "#293446");
-var formattedContacts = HTMLskills.replace("%data%","Mobile: " + bio.contacts.mobile);
-$("#footerContacts").append(formattedContacts);
-var formattedContacts = HTMLskills.replace("%data%","Email: " + bio.contacts.email);
-$("#footerContacts").append(formattedContacts);
-var formattedContacts = HTMLskills.replace("%data%","Twitter: " + bio.contacts.twitter);
-$("#footerContacts").append(formattedContacts);
+	//add contact information to the footer section
+	$(".orange").css("background-color", "#293446");
+	var formattedContacts = HTMLskills.replace("%data%","Mobile: " + bio.contacts.mobile);
+	$("#footerContacts").append(formattedContacts);
+	var formattedContacts = HTMLskills.replace("%data%","Email: " + bio.contacts.email);
+	$("#footerContacts").append(formattedContacts);
+	var formattedContacts = HTMLskills.replace("%data%","Twitter: " + bio.contacts.twitter);
+	$("#footerContacts").append(formattedContacts);
+};
+//calls the bio.display2 function above
+bio.display2();
