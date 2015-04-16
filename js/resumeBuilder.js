@@ -212,198 +212,212 @@ var certifications = {
 	]
 };
 
-//HEADER SECTION//
-bio.display = function() {
-	// code formats the header section; uses helper.js
-	var formattedName = HTMLheaderName.replace("%data%",bio.name);  //format the name from helper.js
-	var formattedRole = HTMLheaderRole.replace("%data%",bio.role);  //format the role from helper.js
-	var formattedPic = HTMLbioPic.replace("%data%",bio.bioPic);  //insert the picture location into helper.js
-	var formattedWelcome = HTMLWelcomeMsg.replace("%data%",bio.welcomemsg);  //format the welcome message from helper.js
-	formattedRole = formattedRole.replace("<span>", "<span class=\"white-text\">");  //change class on formatted role
-	$("#header").prepend(formattedName,formattedRole);  //prepend the name and role to the header id element
-	$("#header").append(formattedPic);  //append the picture to the header id element
-	$("#header").append(formattedWelcome);  //append the welcome message to the hdaer id element
-	// format and appen the skills to the hedaer id element
-	if (bio.skills.length !== 0) { //if the skills object does not have a length of zero, do the following
-		$("#header").append(HTMLskillsStart);  //append the header id element with the skill start format from helper.js
-		
-		for (i in bio.skills) {  //step through the skills list formatting it using the helper.js template and appending it to the skills id element
-			var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
-			$("#skills").append(formattedSkills);
-		};
-	};
-	// add a character section along with character attributes
-	if (bio.character.length !== 0) {  //if the character object does not have a length of zero, do the following
-		var formattedCharacter = HTMLskillsStart.replace("Skills at a Glance", "Character Traits");  //format the character title from the skills start helper.js template
-		formattedCharacter = formattedCharacter.replace("id=\"skillsH3", "id=\"traitsH3");  //change the skillsH3 id to traitsH3 for this new element
-		formattedCharacter = formattedCharacter.replace("id=\"skills", "id=\"traits");  //change the skills id to the traits id for this new element
-		$("#header").append(formattedCharacter);  //add this new element to the header id
-		$("#traitsH3").css("color", "#FFFFFF");  //set the color of the element traitsH3
-		$("#skillsH3").css("color", "#FFFFFF");  //set the color of the element skillsH3
+var octopus = {
 
-		for (i in bio.character) {  //step through the character list formatting it using the helper.js template an appending it to the traits id element
-			var formattedTraits = HTMLskills.replace("%data%",bio.character[i]);
-			$("#traits").append(formattedTraits);
-		};
-	};
-	$("#header").css("background-color", "#293446");  //change the background color of the header section
-	$("h1").css("color", "#FFFFFF");  //change the header text color
-	$("#footerContacts").css("background-color", "#293446");  //change the background color of the footer section
-	$(".white-text").css("color", "#C0C0C0");  //change the color of the white-text class to a slight gray (ironic)
-	$(".welcome-message").css("color", "#C0C0C0");  //change the color of the welcome-message class to slight gray
+	init: function(){
+		//Calls the function to display the header section and bio information
+		view.bioDisplay();
+		//calls the work experience function to display the work experience information
+		view.workDisplay();
+		//calls the projects function to display the projects information
+		view.projectsDisplay();
+		//calls the education function to display the education information
+		view.educationDisplay();
+		//calls the certification function to display the certification information
+		view.certificationsDisplay();
+		//calls the bio.display2 function to display the map and footer
+		view.bioDisplay2();
+	}
 };
-bio.display();
 
-//WORK EXPERIENCE SECTION//
-//Code formats the work experience section
-work.display = function () {  //function walks through the work.jobs object to create the work experience section
-	for (j in work.jobs) {  //loops through work.jobs to place the information in the work experience section
-		//sets up the header for the job, formats the employer and title, and appends it to the work-entry class
-		$("#workExperience").append(HTMLworkStart);
-		var formattedWorkEmployer = HTMLworkEmployer.replace("%data%",work.jobs[j].employer);
-		var formattedWorkTitle = HTMLworkTitle.replace("%data%",work.jobs[j].title);
-		$(".work-entry:last").append(formattedWorkEmployer+formattedWorkTitle);
-
-		//formats the location and appends to work-entry class
-		var formattedWorkLocation = HTMLworkLocation.replace("%data%",work.jobs[j].location);
-		$(".work-entry:last").append(formattedWorkLocation);
-
-		//formats the dates and appends to work-entry class
-		var formattedWorkDates = HTMLworkDates.replace("%data%",work.jobs[j].dates);
-		$(".work-entry:last").append(formattedWorkDates);
-
-		//formats the description and appends to the work-entry class
-		var formattedWorkDescription = HTMLworkDescription.replace("%data%",work.jobs[j].description);
-		$(".work-entry:last").append(formattedWorkDescription);
-
-		//formatts the work experience bullets and appends them to the work-entry class as bullets
-		if (work.jobs[j].experience.length > 0) {
-			$("li").css("margin-left", 15); //ensure indentation
-			for (m in work.jobs[j].experience) {
-				$(".work-entry:last").append("<ul>");
-				$(".work-entry:last").append("<li style=\"margin-left: 15px;\">" +  "<p>"+ work.jobs[j].experience[m] + "</p>" + "</li>");
-				$(".work-entry:last").append("</ul>");
+var view = {
+	//HEADER SECTION//
+	bioDisplay: function() {
+		// code formats the header section; uses helper.js
+		var formattedName = HTMLheaderName.replace("%data%",bio.name);  //format the name from helper.js
+		var formattedRole = HTMLheaderRole.replace("%data%",bio.role);  //format the role from helper.js
+		var formattedPic = HTMLbioPic.replace("%data%",bio.bioPic);  //insert the picture location into helper.js
+		var formattedWelcome = HTMLWelcomeMsg.replace("%data%",bio.welcomemsg);  //format the welcome message from helper.js
+		formattedRole = formattedRole.replace("<span>", "<span class=\"white-text\">");  //change class on formatted role
+		$("#header").prepend(formattedName,formattedRole);  //prepend the name and role to the header id element
+		$("#header").append(formattedPic);  //append the picture to the header id element
+		$("#header").append(formattedWelcome);  //append the welcome message to the hdaer id element
+		// format and appen the skills to the hedaer id element
+		if (bio.skills.length !== 0) { //if the skills object does not have a length of zero, do the following
+			$("#header").append(HTMLskillsStart);  //append the header id element with the skill start format from helper.js
+			
+			for (i in bio.skills) {  //step through the skills list formatting it using the helper.js template and appending it to the skills id element
+				var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
+				$("#skills").append(formattedSkills);
 			};
 		};
-		$(".work-entry:last").append("<br>");  //add line feed
-	};
-};
-//calls the work experience function above
-work.display();
+		// add a character section along with character attributes
+		if (bio.character.length !== 0) {  //if the character object does not have a length of zero, do the following
+			var formattedCharacter = HTMLskillsStart.replace("Skills at a Glance", "Character Traits");  //format the character title from the skills start helper.js template
+			formattedCharacter = formattedCharacter.replace("id=\"skillsH3", "id=\"traitsH3");  //change the skillsH3 id to traitsH3 for this new element
+			formattedCharacter = formattedCharacter.replace("id=\"skills", "id=\"traits");  //change the skills id to the traits id for this new element
+			$("#header").append(formattedCharacter);  //add this new element to the header id
+			$("#traitsH3").css("color", "#FFFFFF");  //set the color of the element traitsH3
+			$("#skillsH3").css("color", "#FFFFFF");  //set the color of the element skillsH3
 
-//PROJECTS SECTION//
-//Code formats the projects section
-projects.display = function() {  //function walks through the projects.projects object to create the projects section
-	for (k in projects.projects) {  //loops through projects.projects to place the information in the projects section
-		//sets up the header for the project, formats the title, and appends it to the project-entry class
-		$("#projects").append(HTMLprojectStart);
-		var formattedProjectTitle = HTMLprojectTitle.replace("%data%",projects.projects[k].title);
-		$(".project-entry:last").append(formattedProjectTitle);
-
-		//formats the dates and appends to project-entry class
-		var formattedProjectDates = HTMLprojectDates.replace("%data%",projects.projects[k].dates);
-		$(".project-entry:last").append(formattedProjectDates);
-
-		//formats the description and appends to project-entry class
-		var formattedProjectDescription = HTMLprojectDescription.replace("%data%",projects.projects[k].description);
-		$(".project-entry:last").append(formattedProjectDescription);
-
-		if (projects.projects[k].images === "") {
-			$(".project-entry:last").append("<br>");  //line feed
-		} else {
-			//formats the impage and appends to project-entry class
-			var formattedProjectImage = HTMLprojectImage.replace("%data%",projects.projects[k].images);
-			$(".project-entry:last").append(formattedProjectImage);
-		};
-	};
-};
-//calls the projects function above
-projects.display();
-
-//EDUCATION SECTION//
-//Code formats the education section
-education.display = function() {   //function walks through the education.schools object to create the education section
-	for (k in education.schools) {  //loops through education.schools to place the information in the education section
-		//sets up the header for the school, formats the name, url and degree, and appends it to the education-entry class
-		$("#education").append(HTMLschoolStart);
-		var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[k].name);
-		var formattedSchoolName = formattedSchoolName.replace("#",education.schools[k].url);
-		if (education.schools[k].degree === "") {  //determine if a degree is empty; if so, format degree to empty, else format the degree in the object
-			var formattedSchoolDegree = "";
-		} else {
-			var formattedSchoolDegree = HTMLschoolDegree.replace("%data%",education.schools[k].degree);
-		};
-		$(".education-entry:last").append(formattedSchoolName+formattedSchoolDegree);
-
-		//formats the dates and appends to education-entry class
-		var formattedSchoolDates = HTMLschoolDates.replace("%data%",education.schools[k].dates);
-		$(".education-entry:last").append(formattedSchoolDates);
-
-		//formats the location and appends to education-entry class
-		var formattedSchoolLocs = HTMLschoolLocation.replace("%data%",education.schools[k].location);
-		$(".education-entry:last").append(formattedSchoolLocs);
-
-		//formats the major (if one exists) and appends to education-entry class
-		if (education.schools[k].majors === "") {
-			var formattedSchoolMajor= HTMLschoolMajor.replace("Major: %data%",education.schools[k].majors);;
-		} else {
-			var formattedSchoolMajor = HTMLschoolMajor.replace("%data%",education.schools[k].majors);
-		};
-		$(".education-entry:last").append(formattedSchoolMajor);
-	};
-};
-//calls the education function above
-education.display();
-
-//CERTIFICATIONS SECTION//
-certifications.display = function() {  //function walks through the certifications.certs object to create the certifications section
-//Code formats the certification section
-	$("<div id='certs'></div>").insertAfter("#education");  //inserts a certs element
-	$("#certs").append("<h2>Certifications</h2>");  //inserts a Certifications header
-	for (n in certifications.certs) {  //loops through certifications.certs to place the information in the certifications section
-		//sets up the header for the cert, formats the company, and appends it to the work-entry class
-		$("#certs").append(HTMLworkStart);
-		var formattedCertCompany = HTMLworkEmployer.replace("%data%",certifications.certs[n].company);
-		$(".work-entry:last").append(formattedCertCompany);
-
-		//formats the certification and appends to work-entry class
-		$("#certs").css("list-style", "square");
-		if (certifications.certs[n].certname.length > 0) {
-			for (o in certifications.certs[n].certname) {
-				$(".work-entry:last").append("<p>" + certifications.certs[n].certname[o] + "</p>");
+			for (i in bio.character) {  //step through the character list formatting it using the helper.js template an appending it to the traits id element
+				var formattedTraits = HTMLskills.replace("%data%",bio.character[i]);
+				$("#traits").append(formattedTraits);
 			};
 		};
-		$(".work-entry:last").append("<br>");  //line feed
-	};
+		$("#header").css("background-color", "#293446");  //change the background color of the header section
+		$("h1").css("color", "#FFFFFF");  //change the header text color
+		$("#footerContacts").css("background-color", "#293446");  //change the background color of the footer section
+		$(".white-text").css("color", "#C0C0C0");  //change the color of the white-text class to a slight gray (ironic)
+		$(".welcome-message").css("color", "#C0C0C0");  //change the color of the welcome-message class to slight gray
+	},
+	
+	//WORK EXPERIENCE SECTION//
+	//Code formats the work experience section
+	workDisplay: function () {  //function walks through the work.jobs object to create the work experience section
+		for (j in work.jobs) {  //loops through work.jobs to place the information in the work experience section
+			//sets up the header for the job, formats the employer and title, and appends it to the work-entry class
+			$("#workExperience").append(HTMLworkStart);
+			var formattedWorkEmployer = HTMLworkEmployer.replace("%data%",work.jobs[j].employer);
+			var formattedWorkTitle = HTMLworkTitle.replace("%data%",work.jobs[j].title);
+			$(".work-entry:last").append(formattedWorkEmployer+formattedWorkTitle);
+
+			//formats the location and appends to work-entry class
+			var formattedWorkLocation = HTMLworkLocation.replace("%data%",work.jobs[j].location);
+			$(".work-entry:last").append(formattedWorkLocation);
+
+			//formats the dates and appends to work-entry class
+			var formattedWorkDates = HTMLworkDates.replace("%data%",work.jobs[j].dates);
+			$(".work-entry:last").append(formattedWorkDates);
+
+			//formats the description and appends to the work-entry class
+			var formattedWorkDescription = HTMLworkDescription.replace("%data%",work.jobs[j].description);
+			$(".work-entry:last").append(formattedWorkDescription);
+
+			//formatts the work experience bullets and appends them to the work-entry class as bullets
+			if (work.jobs[j].experience.length > 0) {
+				$("li").css("margin-left", 15); //ensure indentation
+				for (m in work.jobs[j].experience) {
+					$(".work-entry:last").append("<ul>");
+					$(".work-entry:last").append("<li style=\"margin-left: 15px;\">" +  "<p>"+ work.jobs[j].experience[m] + "</p>" + "</li>");
+					$(".work-entry:last").append("</ul>");
+				};
+			};
+			$(".work-entry:last").append("<br>");  //add line feed
+		};
+	},
+
+	//PROJECTS SECTION//
+	//Code formats the projects section
+	projectsDisplay: function() {  //function walks through the projects.projects object to create the projects section
+		for (k in projects.projects) {  //loops through projects.projects to place the information in the projects section
+			//sets up the header for the project, formats the title, and appends it to the project-entry class
+			$("#projects").append(HTMLprojectStart);
+			var formattedProjectTitle = HTMLprojectTitle.replace("%data%",projects.projects[k].title);
+			$(".project-entry:last").append(formattedProjectTitle);
+
+			//formats the dates and appends to project-entry class
+			var formattedProjectDates = HTMLprojectDates.replace("%data%",projects.projects[k].dates);
+			$(".project-entry:last").append(formattedProjectDates);
+
+			//formats the description and appends to project-entry class
+			var formattedProjectDescription = HTMLprojectDescription.replace("%data%",projects.projects[k].description);
+			$(".project-entry:last").append(formattedProjectDescription);
+
+			if (projects.projects[k].images === "") {
+				$(".project-entry:last").append("<br>");  //line feed
+			} else {
+				//formats the impage and appends to project-entry class
+				var formattedProjectImage = HTMLprojectImage.replace("%data%",projects.projects[k].images);
+				$(".project-entry:last").append(formattedProjectImage);
+			};
+		};
+	},
+
+	//EDUCATION SECTION//
+	//Code formats the education section
+	educationDisplay: function() {   //function walks through the education.schools object to create the education section
+		for (k in education.schools) {  //loops through education.schools to place the information in the education section
+			//sets up the header for the school, formats the name, url and degree, and appends it to the education-entry class
+			$("#education").append(HTMLschoolStart);
+			var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[k].name);
+			var formattedSchoolName = formattedSchoolName.replace("#",education.schools[k].url);
+			if (education.schools[k].degree === "") {  //determine if a degree is empty; if so, format degree to empty, else format the degree in the object
+				var formattedSchoolDegree = "";
+			} else {
+				var formattedSchoolDegree = HTMLschoolDegree.replace("%data%",education.schools[k].degree);
+			};
+			$(".education-entry:last").append(formattedSchoolName+formattedSchoolDegree);
+
+			//formats the dates and appends to education-entry class
+			var formattedSchoolDates = HTMLschoolDates.replace("%data%",education.schools[k].dates);
+			$(".education-entry:last").append(formattedSchoolDates);
+
+			//formats the location and appends to education-entry class
+			var formattedSchoolLocs = HTMLschoolLocation.replace("%data%",education.schools[k].location);
+			$(".education-entry:last").append(formattedSchoolLocs);
+
+			//formats the major (if one exists) and appends to education-entry class
+			if (education.schools[k].majors === "") {
+				var formattedSchoolMajor= HTMLschoolMajor.replace("Major: %data%",education.schools[k].majors);;
+			} else {
+				var formattedSchoolMajor = HTMLschoolMajor.replace("%data%",education.schools[k].majors);
+			};
+			$(".education-entry:last").append(formattedSchoolMajor);
+		};
+	},
+
+	//CERTIFICATIONS SECTION//
+	certificationsDisplay: function() {  //function walks through the certifications.certs object to create the certifications section
+	//Code formats the certification section
+		$("<div id='certs'></div>").insertAfter("#education");  //inserts a certs element
+		$("#certs").append("<h2>Certifications</h2>");  //inserts a Certifications header
+		for (n in certifications.certs) {  //loops through certifications.certs to place the information in the certifications section
+			//sets up the header for the cert, formats the company, and appends it to the work-entry class
+			$("#certs").append(HTMLworkStart);
+			var formattedCertCompany = HTMLworkEmployer.replace("%data%",certifications.certs[n].company);
+			$(".work-entry:last").append(formattedCertCompany);
+
+			//formats the certification and appends to work-entry class
+			$("#certs").css("list-style", "square");
+			if (certifications.certs[n].certname.length > 0) {
+				for (o in certifications.certs[n].certname) {
+					$(".work-entry:last").append("<p>" + certifications.certs[n].certname[o] + "</p>");
+				};
+			};
+			$(".work-entry:last").append("<br>");  //line feed
+		};
+	},
+	//certifications.display();
+
+	//following small section of code used in Javascript class; not used for the resume
+	//function inName(name){
+	//	name = name.trim().split(" ");
+	//	console.log(name);
+	//	name[1] = name[1].toUpperCase();
+	//	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+	//	return name[0] +" "+name[1];
+	//};
+
+	//$("#main").append(internationalizeButton);
+
+	//MAP AND FOOTER SECTIONS//
+	bioDisplay2: function() {
+		//enables the googlemap and sets the background color to gray since an additional section was added above it
+		$("#mapDiv").addClass("gray");
+		$("#mapDiv").append(googleMap);
+
+		//add contact information to the footer section
+		$(".orange").css("background-color", "#293446");
+		var formattedContacts = HTMLskills.replace("%data%","Mobile: " + bio.contacts.mobile);
+		$("#footerContacts").append(formattedContacts);
+		var formattedContacts = HTMLskills.replace("%data%","Email: " + bio.contacts.email);
+		$("#footerContacts").append(formattedContacts);
+		var formattedContacts = HTMLskills.replace("%data%","Twitter: " + bio.contacts.twitter);
+		$("#footerContacts").append(formattedContacts);
+	}
+
 };
-//calls the certification.display function above
-certifications.display();
 
-//following small section of code used in Javascript class; not used for the resume
-//function inName(name){
-//	name = name.trim().split(" ");
-//	console.log(name);
-//	name[1] = name[1].toUpperCase();
-//	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-//	return name[0] +" "+name[1];
-//};
-
-//$("#main").append(internationalizeButton);
-
-//MAP AND FOOTER SECTIONS//
-bio.display2 = function() {
-	//enables the googlemap and sets the background color to gray since an additional section was added above it
-	$("#mapDiv").addClass("gray");
-	$("#mapDiv").append(googleMap);
-
-	//add contact information to the footer section
-	$(".orange").css("background-color", "#293446");
-	var formattedContacts = HTMLskills.replace("%data%","Mobile: " + bio.contacts.mobile);
-	$("#footerContacts").append(formattedContacts);
-	var formattedContacts = HTMLskills.replace("%data%","Email: " + bio.contacts.email);
-	$("#footerContacts").append(formattedContacts);
-	var formattedContacts = HTMLskills.replace("%data%","Twitter: " + bio.contacts.twitter);
-	$("#footerContacts").append(formattedContacts);
-};
-//calls the bio.display2 function above
-bio.display2();
+//Initializes the view
+octopus.init();
