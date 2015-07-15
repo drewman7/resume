@@ -4,7 +4,7 @@ var bio = {
 	"role":"Web Developer",
 	"contacts": {
 		"mobile":"989-615-8981",
-		"email":"drewmetier@hotmail.com",
+		"email":"drewmetier@outlook.com",
 		"location":"Birch Run, MI",
 		"twitter": "@drewtott"
 	},
