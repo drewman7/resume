@@ -4,7 +4,7 @@ var bio = {
 	"role":"Web Developer",
 	"contacts": {
 		"mobile":"989-615-8981",
-		"email":"drewstuff5@hotmail.com",
+		"email":"drewmetier@hotmail.com",
 		"location":"Birch Run, MI",
 		"twitter": "@drewtott"
 	},
@@ -26,6 +26,7 @@ var work = {
 			"experience": [
 				"Provided customers consultation on solutions to meet their business and technology needs using Avaya and Cisco solutions",
 				"Researched various technologies including cloud, hosted, on-premise, and managed to address customer identified requirements",
+				"Prepared for AT&T's 2020 initiative through studying Software Defined Networking (SDN) and Network Virtualization Infrastructure (NVI)",
 				"Lead and participated AT&T process development for Avaya solutions",
 				"Managed engineering sub teams to develop large and complex solutions for customers",
 				"Assisted peers with complex designs and solutions",
@@ -111,6 +112,12 @@ var projects = {
 			"description": "Building of an online, interactive resume (which is what you are viewing now).",
 			"images": ""
 		},
+		{
+			"title": "Front-End Web Design Nanodegree Project 5 - Neighborhood Map Project",
+			"dates": "May 2015",
+			"description": "Building a dynamic, useful website using object orientend programming, code optimization, and APIs:",
+			"images": "images/project5-600.png"
+		},
 		{	"title": "Proposal Management and Implementation Tool",
 			"dates": "January 2015",
 			"description": "Excel based visual basic sales quote tool and implementation pricing design tool:",
@@ -125,15 +132,15 @@ var education = {
 		{
 			"name": "Udacity",
 			"degree": "Nanodegree",
-			"majors": "Front End Web Design",			
-			"dates": "Intended completion May 2015",
+			"majors": "Front-End Web Developer",
+			"dates": "June 2015",
 			"location": "Online",
 			"url": "http://udacity.com"
 		},
 		{
 			"name": "University of Michigan",
 			"degree": "Bachelor of Science",
-			"majors": "Electrical Engineering",			
+			"majors": "Electrical Engineering",
 			"dates": "May 1995",
 			"location": "Ann Arbor, MI",
 			"url": "http://umich.edu"
@@ -144,7 +151,7 @@ var education = {
 			"majors": "",
 			"dates": "May 1990",
 			"location": "Saginaw, MI",
-			"url": "http://www.sacschools.org/index.php/our-schools/nouvel-high-school-ncchs"	
+			"url": "http://www.sacschools.org/index.php/our-schools/nouvel-high-school-ncchs"
 		}
 	],
 	"onlineCourses": [
@@ -161,6 +168,12 @@ var education = {
 // resume certification information
 var certifications = {
 	"certs": [
+		{
+			"company": "Udacity",
+			"certname": [
+				"Front-End Web Developer Nanodegree"
+			]
+		},
 		{
 			"company": "Avaya",
 			"certname": [
@@ -245,7 +258,7 @@ var view = {
 		// format and appen the skills to the hedaer id element
 		if (bio.skills.length !== 0) { //if the skills object does not have a length of zero, do the following
 			$("#header").append(HTMLskillsStart);  //append the header id element with the skill start format from helper.js
-			
+
 			for (i in bio.skills) {  //step through the skills list formatting it using the helper.js template and appending it to the skills id element
 				var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
 				$("#skills").append(formattedSkills);
@@ -271,7 +284,7 @@ var view = {
 		$(".white-text").css("color", "#C0C0C0");  //change the color of the white-text class to a slight gray (ironic)
 		$(".welcome-message").css("color", "#C0C0C0");  //change the color of the welcome-message class to slight gray
 	},
-	
+
 	//WORK EXPERIENCE SECTION//
 	//Code formats the work experience section
 	workDisplay: function () {  //function walks through the work.jobs object to create the work experience section
@@ -404,8 +417,8 @@ var view = {
 	//MAP AND FOOTER SECTIONS//
 	bioDisplay2: function() {
 		//enables the googlemap and sets the background color to gray since an additional section was added above it
-		$("#mapDiv").addClass("gray");
-		$("#mapDiv").append(googleMap);
+		//$("#mapDiv").addClass("gray");
+		//$("#mapDiv").append(googleMap);
 
 		//add contact information to the footer section
 		$(".orange").css("background-color", "#293446");
