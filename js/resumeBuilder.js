@@ -125,7 +125,7 @@ var education = {
 		{
 			"name": "Udacity",
 			"degree": "Nanodegree",
-			"majors": "Front End Web Design",			
+			"majors": "Front End Web Design",
 			"dates": "Intended completion May 2015",
 			"location": "Online",
 			"url": "http://udacity.com"
@@ -133,7 +133,7 @@ var education = {
 		{
 			"name": "University of Michigan",
 			"degree": "Bachelor of Science",
-			"majors": "Electrical Engineering",			
+			"majors": "Electrical Engineering",
 			"dates": "May 1995",
 			"location": "Ann Arbor, MI",
 			"url": "http://umich.edu"
@@ -144,7 +144,7 @@ var education = {
 			"majors": "",
 			"dates": "May 1990",
 			"location": "Saginaw, MI",
-			"url": "http://www.sacschools.org/index.php/our-schools/nouvel-high-school-ncchs"	
+			"url": "http://www.sacschools.org/index.php/our-schools/nouvel-high-school-ncchs"
 		}
 	],
 	"onlineCourses": [
@@ -245,7 +245,7 @@ var view = {
 		// format and appen the skills to the hedaer id element
 		if (bio.skills.length !== 0) { //if the skills object does not have a length of zero, do the following
 			$("#header").append(HTMLskillsStart);  //append the header id element with the skill start format from helper.js
-			
+
 			for (i in bio.skills) {  //step through the skills list formatting it using the helper.js template and appending it to the skills id element
 				var formattedSkills = HTMLskills.replace("%data%",bio.skills[i]);
 				$("#skills").append(formattedSkills);
@@ -271,7 +271,7 @@ var view = {
 		$(".white-text").css("color", "#C0C0C0");  //change the color of the white-text class to a slight gray (ironic)
 		$(".welcome-message").css("color", "#C0C0C0");  //change the color of the welcome-message class to slight gray
 	},
-	
+
 	//WORK EXPERIENCE SECTION//
 	//Code formats the work experience section
 	workDisplay: function () {  //function walks through the work.jobs object to create the work experience section
@@ -404,8 +404,8 @@ var view = {
 	//MAP AND FOOTER SECTIONS//
 	bioDisplay2: function() {
 		//enables the googlemap and sets the background color to gray since an additional section was added above it
-		$("#mapDiv").addClass("gray");
-		$("#mapDiv").append(googleMap);
+		//$("#mapDiv").addClass("gray");
+		//$("#mapDiv").append(googleMap);
 
 		//add contact information to the footer section
 		$(".orange").css("background-color", "#293446");
