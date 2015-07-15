@@ -4,7 +4,7 @@ var bio = {
 	"role":"Web Developer",
 	"contacts": {
 		"mobile":"989-615-8981",
-		"email":"drewstuff5@hotmail.com",
+		"email":"drewmetier@hotmail.com",
 		"location":"Birch Run, MI",
 		"twitter": "@drewtott"
 	},
@@ -26,6 +26,7 @@ var work = {
 			"experience": [
 				"Provided customers consultation on solutions to meet their business and technology needs using Avaya and Cisco solutions",
 				"Researched various technologies including cloud, hosted, on-premise, and managed to address customer identified requirements",
+				"Prepared for AT&T's 2020 initiative through studying Software Defined Networking (SDN) and Network Virtualization Infrastructure (NVI)",
 				"Lead and participated AT&T process development for Avaya solutions",
 				"Managed engineering sub teams to develop large and complex solutions for customers",
 				"Assisted peers with complex designs and solutions",
@@ -111,6 +112,12 @@ var projects = {
 			"description": "Building of an online, interactive resume (which is what you are viewing now).",
 			"images": ""
 		},
+		{
+			"title": "Front-End Web Design Nanodegree Project 5 - Neighborhood Map Project",
+			"dates": "May 2015",
+			"description": "Building a dynamic, useful website using object orientend programming, code optimization, and APIs:",
+			"images": "images/project5-600.png"
+		},
 		{	"title": "Proposal Management and Implementation Tool",
 			"dates": "January 2015",
 			"description": "Excel based visual basic sales quote tool and implementation pricing design tool:",
@@ -125,8 +132,8 @@ var education = {
 		{
 			"name": "Udacity",
 			"degree": "Nanodegree",
-			"majors": "Front End Web Design",
-			"dates": "Intended completion May 2015",
+			"majors": "Front-End Web Developer",
+			"dates": "June 2015",
 			"location": "Online",
 			"url": "http://udacity.com"
 		},
@@ -161,6 +168,12 @@ var education = {
 // resume certification information
 var certifications = {
 	"certs": [
+		{
+			"company": "Udacity",
+			"certname": [
+				"Front-End Web Developer Nanodegree"
+			]
+		},
 		{
 			"company": "Avaya",
 			"certname": [
