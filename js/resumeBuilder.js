@@ -9,7 +9,7 @@ var bio = {
 		"twitter": "@drewtott"
 	},
 	"welcomemsg":"My passion is to enable people to become who they were created to be.  Specific to the work environment, my desire is to solve business and technical problems while enabling users to reach higher goals through the development of applications and solutions.",
-	"skills": ["Analytical", "Intuitive", "Resourceful", "Adaptable", "Inovative","Quick Learner"],
+	"skills": ["Analytical", "Intuitive", "Resourceful", "Adaptable", "Innovative","Quick Learner"],
 	"character": ["Integrity", "Respectful", "Patient", "Self-motivated"],
 	"bioPic": "images/drew.jpg"
 };
@@ -30,7 +30,7 @@ var work = {
 				"Lead and participated AT&T process development for Avaya solutions",
 				"Managed engineering sub teams to develop large and complex solutions for customers",
 				"Assisted peers with complex designs and solutions",
-				"Provided training to engieners and sales teams on Avaya products and solutions",
+				"Provided training to engineers and sales teams on Avaya products and solutions",
 				"Studied Value Based Selling, Science of Consultative Selling, and AT&T Voice Transformation",
 				"Trained on various products and technologies including Avaya, Cisco, Lync, Juniper Networks, Adtran, and Shortel"
 			]
@@ -58,10 +58,10 @@ var work = {
 			"dates": "September 2000 to December 2007; June 2011 to Present",
 			"description": "Lead, guided, and coordinated discussion and issue resolution between Avaya partners and Avaya",
 			"experience": [
-				"Analyized and evaluated Avaya tools and processes for designing and solutioning Avaya products and services",
+				"Analyzed and evaluated Avaya tools and processes for designing and solutioning Avaya products and services",
 				"Chaired, guided, directed, and participated in the Configuration Tools Task Force",
 				"Coordinated and lead the monthly conference calls as well as the conference breakout sessions",
-				"Acted as a liason between AT&T and the PCC to address concerns and issues",
+				"Acted as a liaison between AT&T and the PCC to address concerns and issues",
 				"Participated in the Engineering, IP Convergence, Training, and Product Management Task Forces",
 				"Escalate and discussed critical issues with the PCC Board of Directors and Avaya Executives",
 				"Assisted Global Knowledge with the design of a Sales Engineering class",
@@ -90,8 +90,8 @@ var work = {
 			"description": "Supported a SCO Unix based server used for telecommunication central office translations .",
 			"experience": [
 				"Installed and maintenance the Computer Operated Data Entry System (CODES) software",
-				"Supported the SCO Unix mainframed used for the CODES software",
-				"Installed, configured and maintained a sucre multi-modem bank and digiboard system"
+				"Supported the SCO Unix mainframe used for the CODES software",
+				"Installed, configured and maintained a secure multi-modem bank and digiboard system"
 			]
 		}
 	]
@@ -115,7 +115,7 @@ var projects = {
 		{
 			"title": "Front-End Web Design Nanodegree Project 5 - Neighborhood Map Project",
 			"dates": "May 2015",
-			"description": "Building a dynamic, useful website using object orientend programming, code optimization, and APIs:",
+			"description": "Building a dynamic, useful website using object oriented programming, code optimization, and APIs:",
 			"images": "images/project5-600.png"
 		},
 		{	"title": "Proposal Management and Implementation Tool",
