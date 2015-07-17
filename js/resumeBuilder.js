@@ -1,7 +1,7 @@
 // resume biographical information
 var bio = {
 	"name":"Andrew Totten",
-	"role":"Web Developer",
+	"role":"Solution and Web Developer",
 	"contacts": {
 		"mobile":"989-615-8981",
 		"email":"drewmetier@outlook.com",
